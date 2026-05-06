@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>PRODOC Admin</title>
+<style>
+body{font-family:Arial;margin:0;background:#f4f7fb}
+.header{background:#003366;color:#fff;padding:20px;text-align:center}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#fff;padding:20px;border-radius:10px;margin-top:20px}
+input,textarea,button{width:100%;padding:10px;margin:8px 0}
+button{background:#003366;color:#fff;border:none}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="header"><h1>PRODOC MBBS Abroad Consultancy</h1></div>
+<div class="container">
+<div class="card" id="loginBox">
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button onclick="login()">Login</button>
+<p id="msg"></p>
+</div>
+
+<div class="card hidden" id="adminPanel">
+<input id="owner" placeholder="Owner Name">
+<input id="contact" placeholder="Contact">
+<input id="email" placeholder="Email">
+<textarea id="address" placeholder="Address"></textarea>
+<textarea id="details" placeholder="University Details"></textarea>
+<button onclick="publishSite()">Save & Open Website</button>
+</div>
+
+<div class="card hidden" id="publicSite">
+<h2 id="showOwner"></h2>
+<p id="showContact"></p>
+<p id="showEmail"></p>
+<p id="showAddress"></p>
+<p id="showDetails"></p>
+</div>
+</div>
+
+<script>
+function login(){
+if(user.value==='Dr Ravi Roy' && pass.value==='Prodoc@aug1998'){
+loginBox.classList.add('hidden');
+adminPanel.classList.remove('hidden');
+}else msg.innerText='Invalid login';
+}
+
+function publishSite(){
+showOwner.innerText=owner.value;
+showContact.innerText='Contact: '+contact.value;
+showEmail.innerText='Email: '+email.value;
+showAddress.innerText='Address: '+address.value;
+showDetails.innerText='Universities: '+details.value;
+
+adminPanel.classList.add('hidden');
+publicSite.classList.remove('hidden');
+}
+</script>
+</body>
+</html>
